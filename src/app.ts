@@ -1,9 +1,14 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import fileUpload from 'express-fileupload';
 import cors from 'cors';
 
+import connectDB from './config/db';
+
 const PORT = 4000;
+mongoose.set('strictQuery', false);
+connectDB();
 
 const app = express();
 app.use(cors());
