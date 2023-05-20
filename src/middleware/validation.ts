@@ -18,12 +18,11 @@ export const userRegisterValidation = async(
       errors: validation.error.details[0].path[0] + ' is not a valid',
     });
   }
-  let {email, phone}= req.body;
+  let {email}= req.body;
   try {
      email = await User.findOne({ email });
-  phone = await User.findOne({ phone });
-  if (email || phone) {
-      return response(res, 400, false, 'email or phone already exists');
+  if (email ) {
+      return response(res, 400, false, 'email already exists');
     }
   next();
   } catch (error) {

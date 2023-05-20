@@ -96,8 +96,18 @@ const login = async (req: Request, res: Response) => {
       return response(res, 400, false, "Incorrect email or password?");
     }
     const token = generateToken(user._id);
+    const publicUser = {
+      _id: user._id,
+      username: user.username,
+      email: user.email,
+      avatar: user.avatar,
+    };
+   
     // updateRefreshToken(user._id, token.refreshToken);
-    response(res, 200, true, "Login successful", { token, userId: user._id });
+    response(res, 200, true, "Login successful", {
+      token,
+      user: publicUser,
+    });
   } catch (err) {
     console.log(err);
     return response(res, 500, false, "Internal server error");
