@@ -6,6 +6,8 @@ import cors from 'cors';
 import client from './config/redis';
 import connectDB from './config/db';
 
+import authRouter from "./router/auth";
+
 const PORT = 4001;
 mongoose.set('strictQuery', false);
 client;
@@ -19,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
   res.send('I love you all ❤️');
 });
+app.use("/api/auth", authRouter);
 
 app.listen(PORT, () => {
   console.log('love u');
