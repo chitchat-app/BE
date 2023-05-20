@@ -31,6 +31,8 @@
     "websocket": "^1.0.34"
   },
   "devDependencies": {
+    "@types/connect-redis": "^0.0.20",
+    "@types/express-session": "^1.17.7",
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
     "eslint": "^8.40.0",

@@ -3,13 +3,13 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import fileUpload from 'express-fileupload';
 import cors from 'cors';
-
+import client from './config/redis';
 import connectDB from './config/db';
 
-const PORT = 4000;
+const PORT = 4001;
 mongoose.set('strictQuery', false);
+client;
 connectDB();
-
 const app = express();
 app.use(cors());
 app.use(fileUpload());
